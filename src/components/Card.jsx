@@ -1,10 +1,10 @@
-function Card({ title, price, img }) {
+function Card({ title, price, imageUrl }) {
   return (
     <div className="card">
       <div className="favorite">
         <img src="/img/heart-unliked.svg" alt="Plus" />
       </div>
-      <img width={133} height={112} src={img} alt="Sneakers" />
+      <img width={133} height={112} src={imageUrl} alt="Sneakers" />
       <h5>{title}</h5>
       <div className="d-flex justify-between align-center">
         <div className="d-flex flex-column">
