@@ -112,6 +112,7 @@ const onChangeSearchInput = (event) => {
       <Route path="/favorits" exact>
         <Favorits
           items={cardFavorite}
+          cartItems={cartItems}
           onAddToFavorite={onAddToFavorite}
           onAddToCart={onAddToCart}
         />

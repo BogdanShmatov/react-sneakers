@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
 
-function Favorits({ items, onAddToCart, onAddToFavorite }) {
+function Favorits({ items, onAddToCart, onAddToFavorite, cartItems }) {
   return (
     <div className="content p-40">
       {items.length > 0 ? (
@@ -20,6 +20,9 @@ function Favorits({ items, onAddToCart, onAddToFavorite }) {
                 favorited={true}
                 onPlus={onAddToCart}
                 onFavorite={onAddToFavorite}
+                added={
+                  cartItems.find((item) => item.id === obj.id) ? true : false
+                }
               />
             ))}
           </div>
