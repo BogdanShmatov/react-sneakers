@@ -49,7 +49,10 @@ function Home({
               onFavorite={onAddToFavorite}
               onPlus={onAddToCart}
               favorited={
-                cardFavorite.find((item) => item.id !== obj.id) ? false : true
+                cardFavorite.find((item) => item.id === obj.id) ? true : false
+              }
+              added={
+                cartItems.find((item) => item.id === obj.id) ? true : false
               }
             />
           ))}
