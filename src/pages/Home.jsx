@@ -7,6 +7,8 @@ function Home({
   onChangeSearchInput,
   onAddToFavorite,
   onAddToCart,
+  cardFavorite,
+  cartItems,
 }) {
   return (
     <div className="content p-40">
@@ -46,6 +48,9 @@ function Home({
               imageUrl={obj.imageUrl}
               onFavorite={onAddToFavorite}
               onPlus={onAddToCart}
+              favorited={
+                cardFavorite.find((item) => item.id !== obj.id) ? false : true
+              }
             />
           ))}
       </div>
