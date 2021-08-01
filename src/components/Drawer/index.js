@@ -13,7 +13,7 @@ function Drawer({onClose, onRemove, items = []}) {
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
 
   const onClickOrder = async () => {
      try {
@@ -71,12 +71,12 @@ function Drawer({onClose, onRemove, items = []}) {
             <li className="d-flex">
               <span>Итого:</span>
               <div></div>
-              <b>21 498 руб.</b>
+              <b>{totalPrice} руб.</b>
             </li>
             <li className="d-flex">
               <span>Налог 5%:</span>
               <div></div>
-              <b>1074 руб.</b>
+              <b>{Math.ceil(totalPrice*5/100)} руб.</b>
             </li>
           </ul>
           <button disabled={isLoading} className="greenButton" onClick={onClickOrder}>

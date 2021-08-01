@@ -105,8 +105,8 @@ const isAddedToFavorite = (id) => {
   return (
     <AppContext.Provider value={{items, cartItems, cardFavorite, isAddedToCart, isAddedToFavorite, setCartOpened, setCartItems}}>
           <div className="wrapper clear">
-            {cartOpened && <Drawer onClose={() => setCartOpened(false)} items={cartItems} onRemove={onRemoveFromCart}/>} 
-              <Header onClickCart={() => setCartOpened(true)}/>
+            {cartOpened && <Drawer onClose={() => {setCartOpened(false); document.body.style.overflow = "auto"}} items={cartItems} onRemove={onRemoveFromCart}/>} 
+              <Header onClickCart={() => {setCartOpened(true); document.body.style.overflow = "hidden"}}/>
               <Route path="/" exact>
                   <Home
                     items={items}
