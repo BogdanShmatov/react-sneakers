@@ -1,8 +1,8 @@
 import React from 'react';
 import ContentLoader from "react-content-loader";
+
 import styles from './Card.module.scss';
 import AppContext from "../../context";
-
 
 function Card({id, parentId, title, price, imageUrl, onFavorite, onPlus, loading = true }) {
   const { isAddedToCart, isAddedToFavorite, cardFavorite, cartItems} = React.useContext(AppContext);
@@ -34,9 +34,12 @@ function Card({id, parentId, title, price, imageUrl, onFavorite, onPlus, loading
               </ContentLoader> 
             ):( 
               <>
-              <div className={styles.favorite} onClick={onClickFavorite}>
-                <img src={isAddedToFavorite(parentId) ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Favorite" />
+              {onFavorite && <div className={styles.favorite} onClick={onClickFavorite}>
+               <img 
+                src={isAddedToFavorite(parentId) ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} 
+                alt="Favorite" />
               </div>
+              }
               <img width={133} height={112} src={imageUrl} alt="Sneakers" />
               <h5>{title}</h5>
               <div className="d-flex justify-between align-center">
@@ -44,12 +47,16 @@ function Card({id, parentId, title, price, imageUrl, onFavorite, onPlus, loading
                   <span>Цена:</span>
                   <b>{price} руб.</b>
                 </div>
-                  <img src={isAddedToCart(parentId) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} alt="Plus" className={styles.plus} onClick={onClickPlus} />
+                  {onPlus && <img 
+                  src={isAddedToCart(parentId) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} 
+                  alt="Plus" 
+                  className={styles.plus} 
+                  onClick={onClickPlus} />
+                  }
               </div>
             </>)}
    </div> 
   );
-
 }
 
 export default Card;

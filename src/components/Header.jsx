@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+
 import AppContext from "../context";
 
 function Header({ onClickCart }) {
@@ -34,9 +34,11 @@ function Header({ onClickCart }) {
             />{" "}
           </Link>
         </li>
-        <li>
-          <img width={18} height={18} src="/img/user.svg" alt="user" />
-        </li>
+        <Link to="/orders">
+          <li>
+            <img width={18} height={18} src="/img/user.svg" alt="user" />
+          </li>
+        </Link>
       </ul>
     </header>
   );

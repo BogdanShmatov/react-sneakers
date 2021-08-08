@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Card from "../components/Card";
-import AppContext from "../context";
 
+import Card from "../components/Card";
 import Info from "../components/Info";
+
+import AppContext from "../context";
 
 function Favorits({ onAddToCart, onAddToFavorite }) {
   const { cardFavorite, isAddedToCart } = React.useContext(AppContext);
