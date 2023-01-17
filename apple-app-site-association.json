@@ -4,11 +4,11 @@
         "details": [
             {
                 "appID": "C5G3U6QFZR.com.wooppay.wooppay",
-                "paths": ["/services/"]
+                "paths": ["*"]
             },
             {
                 "appID": "C5G3U6QFZR.com.wooppay.wooppay-debug",
-                "paths": ["/services/"]
+                "paths": ["*"]
             }
         ]
     }
